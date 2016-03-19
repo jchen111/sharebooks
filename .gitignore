@@ -47,7 +47,8 @@ atlassian-ide-plugin.xml
 /bin/
 
 # External Config Properties and Credentials
-
+src/main/resources/mongodbCredentials.properties
+src/main/resources/mailgunCredentials.properties
 # Kitchen
 .kitchen
 Berksfile.lock
