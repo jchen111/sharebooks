@@ -6,9 +6,7 @@ import com.sharebooks.domain.User
 import com.sharebooks.dto.response.EmailSentResponse
 import com.sharebooks.util.EmailTemplates.UserCreatedEmailTemplate
 import com.sharebooks.util.exceptions.InternalErrorException
-import com.sun.jersey.core.util.MultivaluedMapImpl
 import org.apache.commons.codec.binary.Base64
-import org.apache.http.HttpStatus
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpHeaders
@@ -60,7 +58,7 @@ class MailgunDAO {
         MultiValueMap formData = new LinkedMultiValueMap<String, String>()
         formData.add("from", DAOConstants.SYSTEM_ADMIN+" "+DAOConstants.SYSTEM_ADMIN_NAME+"@"+mailgunProvider.mailgunDomain)
         formData.add("to", user.email)
-        formData.add("subject", "Welcome to join ShareBooks")
+        formData.add("subject", "Welcome to ShareBooks")
         formData.add("html", htmlTemplate.getText('UTF-8'))
 
         HttpEntity<MultiValueMap> request = new HttpEntity<MultiValueMap>(formData,creatAuthenticationHeader())
